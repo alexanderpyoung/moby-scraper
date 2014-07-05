@@ -37,3 +37,10 @@ build/
 
 .idea
 *.iml
+
+# Fetched data
+
+*.jpg
+*.jpeg
+*.gif
+*.png
