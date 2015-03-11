@@ -17,9 +17,9 @@ module MobyScraper
       
       meta = Hash.new
       css_selectors = ['#coreGameRelease div', '#coreGameGenre div div']
-      for selector in css_selectors
+      css_selectors.each do |selector|
         lhs_meta = @mg_page.css(selector)
-        for number in (0..lhs_meta.length - 1).step(2)
+        (0..lhs_meta.length - 1).step(2).each do |number|
           symbol = lhs_meta[number].text.gsub(" ", "_").downcase.to_sym
           
           # we will want some of our values to be arrays of things (themes, genres etc)
