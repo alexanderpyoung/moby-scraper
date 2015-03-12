@@ -10,6 +10,7 @@ class TestMoby < Test::Unit::TestCase
     assert(game_meta[:developed_by].length == 2)
     assert(game_meta[:theme].length == 2)
     assert(game_meta[:theme].include? "Puzzle-Solving")
+    assert(game_meta[:name] == "Killer7")
   end
 
   def test_exception

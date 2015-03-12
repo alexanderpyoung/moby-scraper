@@ -16,6 +16,7 @@ module MobyScraper
       nbsp_nokogiri = Nokogiri::HTML('&nbsp;').text
       
       meta = Hash.new
+      meta[:name] = @mg_page.at_css(".niceHeaderTitle a").text
       css_selectors = ['#coreGameRelease div', '#coreGameGenre div div']
       css_selectors.each do |selector|
         lhs_meta = @mg_page.css(selector)
