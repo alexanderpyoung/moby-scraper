@@ -30,13 +30,10 @@ module MobyScraper
       return new_date
     end
     
-    def save
+    def save(es_index)
       client = Elasticsearch::Client.new log: false
-      index = client.index index: 'games_test', type:'games', body: @data
-      if index[:created]  
-        return true
-      else
-        return false
+      index = client.index index: es_index, type:'games', body: @data
+      return index["created"]
     end
   end
 end

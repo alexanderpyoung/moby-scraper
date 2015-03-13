@@ -27,7 +27,7 @@ class TestSaver < Test::Unit::TestCase
   def test_save
     game = MobyScraper::MobyScraper.new('olliolli')
     save = MobyScraper::MobySaver.new(game)
-    assert(save.save)
+    assert(save.save("games_test"))
   end
 end
 

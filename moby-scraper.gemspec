@@ -17,4 +17,6 @@ Gem::Specification.new do |spec|
   spec.test_files               =   ['tests/test_moby-scraper.rb']
   spec.require_paths            =   ['lib']
   spec.add_runtime_dependency 'nokogiri', [">=1.6.0"]
+  spec.add_runtime_dependency 'elasticsearch', [">=0"]
+  spec.add_development_dependency 'simplecov', [">=0"]
 end
