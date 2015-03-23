@@ -3,7 +3,11 @@ require 'nokogiri'
 
 module MobyScraper
   class MobyScraper
+    
+    attr_reader :slug
+
     def initialize(game)
+      @slug = game
       @mg_page = Nokogiri::HTML(open("http://www.mobygames.com/game/#{game}"))
       if @mg_page.at_css('title').text.include? '{gameTitle}'
         raise ArgumentError, 'The game cannot be found in MD. This game may not exist.'
@@ -11,7 +15,6 @@ module MobyScraper
     end
         
     def get_meta
-      
       # just in case, we can use this to replace nbsps with proper spaces
       nbsp_nokogiri = Nokogiri::HTML('&nbsp;').text
       

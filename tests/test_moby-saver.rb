@@ -1,6 +1,7 @@
 require 'moby-scraper'
 require 'test/unit'
 require 'test_helper'
+require 'elasticsearch'
 
 class TestSaver < Test::Unit::TestCase
   def test_error
@@ -28,6 +29,8 @@ class TestSaver < Test::Unit::TestCase
     game = MobyScraper::MobyScraper.new('olliolli')
     save = MobyScraper::MobySaver.new(game)
     assert(save.save("games_test"))
+    es_client = Elasticsearch::Client.new log:false
+    delete = es_client.delete index:'games_test', type:'games', id: 'olliolli'
   end
 end
 
